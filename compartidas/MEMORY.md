@@ -1,0 +1,16 @@
+- [Preguntar antes de decidir](preguntar-antes-de-decidir.md) — Ante cualquier decisión de diseño o producto, preguntar siempre en vez de decidir por cuenta propia
+- [Cerrar un paso antes del siguiente](cerrar-un-paso-antes-del-siguiente.md) — No avanzar al siguiente paso hasta cerrar el anterior; si hago una pregunta abierta, esperar la respuesta antes de proponer lo que sigue
+- [Respuestas cortas](respuestas-cortas.md) — Responder corto y preciso; explicar solo cuando el usuario lo pida.
+- [Guardar memoria sin pedirlo](guardar-memoria-sin-pedirlo.md) — Guardar en memoria lo importante sin esperar a que el usuario lo pida: correcciones, decisiones, datos del entorno y estado; en el momento, avisando en una línea.
+- [Desbloquear en vez de frenar](desbloquear-en-vez-de-frenar.md) — En pruebas, crear o ajustar lo que falte y seguir, en vez de marcar el caso como bloqueado; preguntar al inicio si es ambiente de pruebas.
+- [Reportar porcentaje de avance](reportar-porcentaje-avance.md) — Al cerrar cada paso de pruebas, decir el porcentaje estimado de avance hacia la liberación.
+- [No mencionar nombres de empresas](no-mencionar-nombres-de-empresas.md) — Nunca nombres de clientes o empresas en material público; en documentación interna sí.
+- [Sesiones paralelas: avisar](sesiones-paralelas-avisar.md) — Hallazgos que afecten a otra sesión relacionada se le mandan por SendMessage; recursos compartidos por turnos.
+- [Sin ramas ni worktrees](sin-ramas-ni-worktrees.md) — Nunca ramas alternativas ni worktrees propios; lo sin verificar va a la rama principal como wip.
+- [Commits solo de cambios propios](commits-solo-cambios-propios.md) — Con sesiones paralelas en el mismo repo, cada una hace commit solo de sus cambios: git add por ruta.
+- [Commit por cada pieza terminada](commit-por-cada-pieza-terminada.md) — Cada trabajo terminado se commitea en el momento; no dejar cambios acumulándose en el árbol.
+- [Peticiones al final del mensaje](peticiones-al-final-del-mensaje.md) — Todo lo que requiera aprobación, decisión o acción del usuario va al final del mensaje, nunca intercalado.
+- [Sugerir modelo antes de ejecutar](sugerir-modelo-antes-de-ejecutar.md) — Ahorrar tokens es prioridad; sugerir cambio de modelo (Opus↔Sonnet) antes de empezar trabajo cuyo costo no lo amerita.
+- [Diseño de interfaces coherente](diseno-interfaces-coherente.md) — Interfaces coherentes: inventariar la pantalla antes de agregar, nada repetido, orden de lectura, jerarquía y medir en el equipo.
+- [Índices de código al día](indices-codebase-al-dia.md) — Todo repo en uso (incluido memoria-claude) indexado en codebase-memory-mcp, con auto_watch y auto_index; un índice por carpeta.
+- [Encoding: no PowerShell Set-Content](feedback_encoding_powershell.md) — No editar archivos de los repos con PowerShell Set-Content/Out-File: agrega BOM UTF-8; usar Edit o sed.

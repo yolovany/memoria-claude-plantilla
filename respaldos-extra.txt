@@ -1,0 +1,1 @@
+# Carpetas locales que sesion-fin.sh copia a OneDrive/respaldos al cerrar cada sesión: una ruta por línea.

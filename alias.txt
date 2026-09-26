@@ -1,0 +1,2 @@
+# Carpetas de repositorio que usan la memoria de otro proyecto (worktrees, clones de versión).
+# Formato: <carpeta>=<proyecto>. enlazar.ps1 las enlaza a la carpeta del proyecto. Una línea por carpeta.

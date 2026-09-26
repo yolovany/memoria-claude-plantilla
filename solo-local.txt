@@ -1,0 +1,2 @@
+# Repos privados propios que NO llevan CLAUDE.md versionado (sin rastro de Claude en el repo): una carpeta por línea.
+# Se conectan con CLAUDE.local.md, como los públicos.
