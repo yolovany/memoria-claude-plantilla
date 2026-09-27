@@ -45,6 +45,13 @@
   },
   "cleanupPeriodDays": 365,
   "env": {
-    "CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD": "1"
+    "CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD": "1",
+    "CAVEMAN_DEFAULT_MODE": "full",
+    "PONYTAIL_DEFAULT_MODE": "full"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/memoria-claude/hooks/barra-estado.sh",
+    "padding": 0
   }
 }

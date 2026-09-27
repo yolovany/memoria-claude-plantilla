@@ -77,7 +77,8 @@ esa carpeta es un **enlace** a `memoria-claude/<repo>/`: lo que Claude anota cae
 - Claude Code (app de escritorio o CLI), [Git para Windows](https://git-scm.com/download/win) (trae Git Bash) y
   [GitHub CLI](https://cli.github.com/) con sesión: `gh auth login`.
 - OneDrive con sesión iniciada.
-- Opcional: los plugins caveman y ponytail (vienen en `config/settings-memoria.json`) y codebase-memory-mcp.
+- Opcional: los plugins caveman y ponytail (vienen en `config/settings-memoria.json`, en nivel "full" y con su indicador en
+  la barra de estado; el nivel se cambia en `env` de ese archivo) y codebase-memory-mcp.
 
 ## Instalación (una vez por cuenta)
 
@@ -160,7 +161,7 @@ Clona tus repos (según `repos.txt`), enlaza, conecta, aprueba, configura y desc
 | `CLAUDE.md` | Preferencias de trabajo y reglas de la memoria; se carga en todas las sesiones |
 | `compartidas/` | Memorias que sirven a varios proyectos, con su índice `MEMORY.md` |
 | `<repo>/` | Memoria de un repositorio: `MEMORY.md` (índice) y una nota por tema; la crea el hook al abrir el repo |
-| `hooks/` | `sesion-inicio.sh`, `sesion-fin.sh` y `pre-commit.sh` (candado de secretos) |
+| `hooks/` | `sesion-inicio.sh`, `sesion-fin.sh`, `pre-commit.sh` (candado de secretos) y `barra-estado.sh` (nivel de caveman y ponytail en la barra de estado) |
 | `enlazar.ps1` | Deja un equipo listo: clona, enlaza, conecta, aprueba, configura y descifra |
 | `repos.txt` | De dónde clonar cada repo; lo mantiene `enlazar.ps1` |
 | `alias.txt`, `solo-local.txt`, `respaldos-extra.txt` | Ajustes: clones extra, repos sin rastro, carpetas a respaldar |
