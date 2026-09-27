@@ -54,6 +54,8 @@ if [ -n "$(git status --porcelain)" ]; then
     fi
     git commit -q -m "memoria: cierre de sesión $(date '+%Y-%m-%d %H:%M')" || exit 0
 fi
+# 4. índices de codebase-memory-mcp de lo que tenga commit nuevo; al salir, para no retrasar el push
+trap 'bash "$C/hooks/indices.sh" cierre' EXIT
 [ -z "$(git log '@{u}..' --oneline 2>/dev/null)" ] && exit 0    # nada pendiente de subir (incluye commits de un cierre sin red)
 if ! git fetch -q 2>/dev/null; then
     avisa "memoria-claude: sin red al cerrar; el commit quedó local y se sube en el siguiente cierre"

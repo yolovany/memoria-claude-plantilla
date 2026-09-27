@@ -161,7 +161,7 @@ Clona tus repos (según `repos.txt`), enlaza, conecta, aprueba, configura y desc
 | `CLAUDE.md` | Preferencias de trabajo y reglas de la memoria; se carga en todas las sesiones |
 | `compartidas/` | Memorias que sirven a varios proyectos, con su índice `MEMORY.md` |
 | `<repo>/` | Memoria de un repositorio: `MEMORY.md` (índice) y una nota por tema; la crea el hook al abrir el repo |
-| `hooks/` | `sesion-inicio.sh`, `sesion-fin.sh`, `pre-commit.sh` (candado de secretos) y `barra-estado.sh` (nivel de caveman y ponytail en la barra de estado) |
+| `hooks/` | `sesion-inicio.sh`, `sesion-fin.sh`, `pre-commit.sh` (candado de secretos), `barra-estado.sh` (nivel de caveman y ponytail en la barra de estado) e `indices.sh` (reindexa en codebase-memory-mcp lo que tenga commit nuevo, tras cada `git commit` y al cerrar la sesión) |
 | `enlazar.ps1` | Deja un equipo listo: clona, enlaza, conecta, aprueba, configura y descifra |
 | `repos.txt` | De dónde clonar cada repo; lo mantiene `enlazar.ps1` |
 | `alias.txt`, `solo-local.txt`, `respaldos-extra.txt` | Ajustes: clones extra, repos sin rastro, carpetas a respaldar |
