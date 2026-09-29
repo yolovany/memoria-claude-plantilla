@@ -37,7 +37,8 @@ CLAUDE = HOME / '.claude'
 FECHA = datetime.datetime.now().strftime('%Y%m%d%H%M')
 NO_PROYECTO = {'compartidas', 'hooks', 'config', 'secretos', 'docs', 'plantillas', 'skills'}   # y las que empiezan con punto
 MARCA = '/.claude/memoria-claude/'   # entradas de settings.json que son del arnés
-PRESUPUESTO = 4096                   # bytes por índice que se carga en cada chat (~1.1 mil tokens)
+PRESUPUESTO = 4096                   # bytes del índice de un repo, que se carga en cada chat (~1.1 mil tokens)
+PRESUPUESTO_COMPARTIDAS = 6144       # compartidas/MEMORY.md: ~3.6 KB son del arnés; el resto, para las notas propias
 LINEA_MAX = 150                      # caracteres por línea de índice
 
 
@@ -448,8 +449,10 @@ def indices_grandes(extra=()):
             continue
         b = len(p.read_bytes())
         largas = sum(len(l) > LINEA_MAX for l in leer(p).splitlines())
-        if b > PRESUPUESTO:
-            out.append(f'{p.relative_to(CENTRAL).as_posix()} ({b / 1024:.1f} KB, {largas} líneas de más de {LINEA_MAX})')
+        tope = PRESUPUESTO_COMPARTIDAS if p.parent.name == 'compartidas' else PRESUPUESTO
+        if b > tope:
+            out.append(f'{p.relative_to(CENTRAL).as_posix()} ({b / 1024:.1f} de {tope // 1024} KB, {largas} líneas de '
+                       f'más de {LINEA_MAX})')
     return out
 
 
@@ -477,9 +480,8 @@ def revisar(cwd, sesion):
     p = alias().get(Path(top).name, Path(top).name) if top else ''
     grandes = indices_grandes([CENTRAL / p / 'MEMORY.md'] if p else [])
     if grandes:
-        avisos.append('memoria-claude: índices que se cargan en cada chat y pasan del presupuesto (4 KB, líneas de '
-                      f'{LINEA_MAX} caracteres): {", ".join(grandes)}. Propón compactarlos (una línea corta por nota, '
-                      'el detalle en la nota).')
+        avisos.append('memoria-claude: índices que se cargan en cada chat y pasan del presupuesto: '
+                      f'{", ".join(grandes)}. Propón compactarlos (una línea corta por nota, el detalle en la nota).')
     v = version_nueva()
     if v:
         avisos.append(f'memoria-claude: hay versión nueva del arnés (v{v}). Avísale al usuario en una línea que puede '

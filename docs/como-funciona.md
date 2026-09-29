@@ -11,8 +11,9 @@
 | `<repo>/MEMORY.md` | En los chats de ese repo | Índice de la memoria del repo; lo carga la memoria automática de Claude |
 | Índice de un repo adicional | Al tocar su primer archivo | Lo pasa `hooks/indice-adicional.sh` |
 
-Solo se cargan índices (una línea por nota). Claude abre una nota cuando el tema la necesita. Presupuesto: 4 KB por
-índice; el hook de inicio avisa una vez al día si alguno se pasa, y `/memorias` dice cuántos tokens carga cada chat.
+Solo se cargan índices (una línea por nota). Claude abre una nota cuando el tema la necesita. Presupuesto: 6 KB para
+el de `compartidas/` (unos 3.6 KB son del arnés; el resto, para tus notas) y 4 KB para el de cada repo. El hook de
+inicio avisa una vez al día si alguno se pasa, y `/memorias` dice cuántos tokens carga cada chat.
 
 ## Memoria automática y enlaces
 

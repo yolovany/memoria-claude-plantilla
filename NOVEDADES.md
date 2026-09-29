@@ -16,7 +16,7 @@ versión.
   memoria en cada chat.
 - **Barra de estado** con modelo, % de contexto y % del límite de 5 horas.
 - **Menos tokens:** el índice de un repo ya no se carga dos veces; el de un repo adicional llega solo cuando Claude toca
-  sus archivos. Aviso diario si un índice pasa de 4 KB.
+  sus archivos. Aviso diario si un índice pasa del presupuesto (6 KB `compartidas/`, 4 KB cada repo).
 - **Compactar sin perder el hilo:** antes de compactar se archiva y se sube todo; después, Claude retoma desde el
   bloque EN CURSO.
 - **36 notas generales** en tres grupos (preferencias que se apagan, prácticas y según herramienta), con reglas nuevas
