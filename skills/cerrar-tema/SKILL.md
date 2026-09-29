@@ -19,6 +19,6 @@ Hazlo en este orden y reporta al final en pocas líneas:
    guardar (en el proyecto o en `compartidas/`).
 5. **Plantilla:** si existe `~/.claude/memoria-claude/plantilla.txt` (eres el dueño de la plantilla) y el tema tocó
    hooks, `arnes.py`, `REGLAS.md`, `config/`, `skills/` o una nota general de `compartidas/`, propón publicar a la
-   plantilla (skill `publicar`, si existe).
+   plantilla (`python ~/.claude/memoria-claude/publicar.py`, ver "Plantilla pública" en el README de memoria-claude).
 6. **Reporte:** qué quedó hecho, dónde quedó cada cambio (pruebas, producción, solo docs, pendiente de salida), qué
    queda abierto y de quién depende. El commit y el push de memoria-claude los hace el hook de cierre.
