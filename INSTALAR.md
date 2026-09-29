@@ -74,7 +74,8 @@ Su repo salió de la plantilla antes de que se pudiera actualizar. Se conserva t
 2. **Punto de regreso.** `git tag antes-de-migrar` (local; con `git reset --hard antes-de-migrar` se vuelve).
 3. **Conectar con la plantilla.**
    `git remote add plantilla https://github.com/yolovany/memoria-claude-plantilla.git` y
-   `git fetch plantilla --tags`. Trae el instalador nuevo: `git show <última vX.Y.Z>:arnes.py > arnes.py`.
+   `git fetch plantilla --tags`. Trae el instalador nuevo: `git checkout <última vX.Y.Z> -- arnes.py` (sirve en
+   cualquier terminal; no uses `git show … > arnes.py`: en PowerShell lo guarda en UTF-16).
 4. **Vista previa.** `python arnes.py actualizar`: detecta de qué versión salió su copia, muestra las novedades y qué
    se agrega, actualiza o quita. Explícaselo en simple y pide su sí.
 5. **Aplicar.** `python arnes.py actualizar --aplicar`. Los archivos que él editó no se tocan: para cada uno, muestra la
