@@ -72,7 +72,7 @@ echo "- nota" >> "$C/demo/MEMORY.md"
 printf '{"session_id":"cortada1","transcript_path":"%s"}' "$(nat "$p/cortada1.jsonl" | sed 's/\\/\\\\/g')" | bash "$C/hooks/sesion-fin.sh"
 ls "$T/nube/respaldos/claude-conversaciones/$slug/" | grep -q cortada1 || falla "respaldo de la conversación"
 git -C "$T/origen.git" log --oneline -1 | grep -q 'cierre de sesión' || falla "push de la memoria"
-echo 'password = secreto123' > "$C/demo/fuga.md" && git -C "$C" add demo/fuga.md
+w=word; echo "pass$w = secreto123" > "$C/demo/fuga.md" && git -C "$C" add demo/fuga.md   # armada: el candado frenaría este archivo
 git -C "$C" commit -qm fuga 2>/dev/null && falla "el candado dejó pasar una contraseña"
 git -C "$C" reset -q && rm "$C/demo/fuga.md"
 ok "cierre y candado de secretos"

@@ -611,8 +611,12 @@ def actualizar(aplicar=False, forzar=(), version=''):
     instalar_resto()
     cambiados = sorted({*plan['agregar'], *plan['actualizar'], *plan['quitar'], 'compartidas', 'VERSION'})
     git(CENTRAL, 'add', '-A', '--', *cambiados)
-    git(CENTRAL, 'commit', '-q', '-m', f'arnés: actualizado a {nueva}', '--', *cambiados)
-    print(f'listo: arnés en {nueva} (commit hecho; lo sube el hook de cierre)')
+    r = subprocess.run(['git', '-C', str(CENTRAL), 'commit', '-q', '-m', f'arnés: actualizado a {nueva}', '--', *cambiados],
+                       capture_output=True, text=True, encoding='utf-8', errors='replace')
+    if r.returncode:
+        print(f'aviso: el arnés quedó en {nueva} pero sin commit: {(r.stderr or r.stdout).strip()}')
+    else:
+        print(f'listo: arnés en {nueva} (commit hecho; lo sube el hook de cierre)')
 
 
 def tokens(b):
