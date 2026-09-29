@@ -1,18 +1,17 @@
 ---
 name: indices-codebase-al-dia
-description: Todo repo en uso (incluido memoria-claude) indexado en codebase-memory-mcp, con auto_watch y auto_index; un índice por carpeta.
+description: Con codebase-memory-mcp: todo repo en uso indexado y al día; un índice por carpeta.
 metadata:
   type: feedback
 ---
 
-Todo repo que se use en una sesión, incluido `memoria-claude`, debe estar indexado en codebase-memory-mcp, y los
-índices al día siempre.
-
-**Why:** la búsqueda de código parte de esos índices; uno viejo o faltante da respuestas equivocadas.
+Solo si usas codebase-memory-mcp. Todo repo que se use en una sesión, incluido `memoria-claude`, debe estar indexado
+y al día: la búsqueda de código parte de esos índices y uno viejo da respuestas equivocadas.
 
 **How to apply:**
-- Configuración (`codebase-memory-mcp config list`): `auto_watch=true` reindexa los proyectos indexados mientras
-  hay sesión; `auto_index=true` indexa el repo de la sesión si no lo estaba. Los directorios adicionales no se
-  indexan solos: al empezar a usar uno, revisar `list_projects` e indexarlo.
-- Un solo índice por carpeta, con el nombre que da la herramienta; si aparece otro nombre para la misma raíz,
-  borrar el duplicado.
+- Con `auto_index` activado, la herramienta indexa el repo de la sesión y su vigilante lo sigue. No sigue
+  `memoria-claude` ni los directorios adicionales: los cubre `hooks/indices.sh`, que reindexa todo proyecto cuyo commit
+  cambió desde su último índice (tras cada `git commit` y al cerrar la sesión).
+- Un repo nuevo se indexa a mano la primera vez (`index_repository` con `repo_path`).
+- Un solo índice por carpeta, con el nombre que da la herramienta; si aparece otro para la misma carpeta, borrar el
+  duplicado.

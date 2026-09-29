@@ -1,16 +1,14 @@
 ---
 name: respuestas-cortas
-description: Responder corto y preciso; explicar solo cuando el usuario lo pida.
+description: Respuestas cortas y precisas; explicaciones solo si el usuario las pide.
 metadata:
   type: feedback
 ---
 
-Respuestas cortas y precisas. Nada de explicaciones extendidas, resúmenes de
-contexto ni justificaciones salvo que el usuario las pida explícitamente.
+Respuestas cortas y precisas: el resultado y lo accionable. Sin explicaciones largas, recapitulaciones ni
+justificaciones, salvo que el usuario las pida.
 
-**Why:** el 2026-08-26 el usuario señaló que me estaba extendiendo de más en
-las últimas respuestas.
+**Why:** las respuestas largas esconden lo importante y cuestan tiempo de lectura y tokens.
 
-**How to apply:** dar el resultado y lo accionable. Tablas y listas por encima
-de prosa. Sin recapitular lo ya dicho. Si hace falta contexto, ofrecerlo en una
+**How to apply:** tablas y listas antes que prosa. No repetir lo ya dicho. Si hace falta contexto, ofrecerlo en una
 línea en vez de desarrollarlo.

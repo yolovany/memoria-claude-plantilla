@@ -1,0 +1,5 @@
+# Lo del arnés que no quieres. Una por línea:
+#   <nota>            una preferencia o práctica de compartidas/ (sin .md), p. ej.: reportar-porcentaje-avance
+#   plugin:<nombre>   un plugin de config/settings-memoria.json, p. ej.: plugin:caveman
+# Lo apagado sale de compartidas/ y de su índice, y "actualiza el arnés" ya no lo trae. Para volver a encenderlo,
+# borra la línea y di "actualiza el arnés".

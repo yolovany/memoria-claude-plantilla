@@ -1,18 +1,14 @@
 ---
 name: peticiones-al-final-del-mensaje
-description: "Todo lo que requiera aprobación, decisión o acción del usuario va al final del mensaje, nunca intercalado."
-metadata: 
+description: Lo que requiere acción o aprobación del usuario va junto al final del mensaje.
+metadata:
   type: feedback
 ---
 
-Corrección del usuario el 2026-08-09: no repartir peticiones, comandos para que
-él ejecute ni preguntas de aprobación en medio de la respuesta ("no hagas eso
-de que me das las cosas arriba"). Van agrupadas al final.
+Preguntas, comandos que el usuario debe correr y autorizaciones van agrupados al final del mensaje, nunca
+repartidos en medio.
 
-**Why:** lee el mensaje completo antes de actuar; una petición enterrada a
-media respuesta se pierde o le obliga a releer para encontrar qué se esperaba
-de él.
+**Why:** una petición enterrada a media respuesta se pierde o obliga a releer para encontrarla.
 
-**How to apply:** cuerpo del mensaje = lo hecho y lo verificado. Cierre =
-lo único que necesita de él, junto. Si no necesito nada, no cerrar con
-preguntas de relleno. Ver también [[commit-por-cada-pieza-terminada]].
+**How to apply:** cuerpo = lo hecho y lo verificado; cierre = lo único que se necesita del usuario. Si no se necesita
+nada, no cerrar con preguntas de relleno.

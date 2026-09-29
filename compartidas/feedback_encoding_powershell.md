@@ -1,15 +1,15 @@
 ---
 name: feedback_encoding_powershell
-description: No editar archivos de los repos con PowerShell Set-Content/Out-File: agrega BOM UTF-8; usar Edit o sed.
+description: En Windows, no editar archivos con Set-Content/Out-File de PowerShell 5.1: añade BOM.
 metadata:
   type: feedback
 ---
 
-Para editar archivos de los repos (HTML/JS/CSS, Markdown), NO usar `Set-Content -Encoding utf8` ni `Out-File`
-de Windows PowerShell 5.1. Usar la herramienta Edit o `sed -i` desde Bash.
+Solo en Windows. Para editar archivos de un repo no usar `Set-Content` ni `Out-File` de Windows PowerShell 5.1: la
+herramienta Edit, o `sed -i` desde Bash.
 
-**Why:** PowerShell 5.1 escribe UTF-8 **con BOM** (`EF BB BF`): rompe caracteres especiales en HTML y hace que
-una línea `@import` de un CLAUDE.md deje de reconocerse. También convierte LF a CRLF.
+**Why:** PowerShell 5.1 escribe UTF-8 con BOM (`EF BB BF`) y convierte LF a CRLF. El BOM rompe acentos y emojis en
+páginas web y hace que un `@import` al inicio de un `CLAUDE.md` deje de funcionar.
 
-**How to apply:** uno o pocos archivos, Edit; cambios en lote, `sed -i` en Bash. Verificar con
-`head -c3 archivo | xxd` que no empiece con `efbbbf`.
+**How to apply:** pocos archivos, Edit; muchos con el mismo patrón, `sed -i` en Bash (UTF-8 sin BOM, conserva LF).
+Comprobar con `xxd archivo | head -1` que no empiece con `efbbbf`.

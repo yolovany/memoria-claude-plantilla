@@ -1,19 +1,14 @@
 ---
 name: commit-por-cada-pieza-terminada
-description: Cada trabajo terminado se commitea en el momento; no dejar cambios acumulándose en el árbol.
-metadata: 
+description: Todo lo terminado va con su commit, un tema por commit.
+metadata:
   type: feedback
 ---
 
-Instrucción del usuario el 2026-08-09: "todo lo que completes debe estar
-acompañado de su commit". Surgió tras dejar tres temas distintos mezclados sin
-confirmar en el árbol de trabajo.
+Todo lo que se termina va acompañado de su commit, un tema por commit, antes de empezar lo siguiente.
 
-**Why:** cambios acumulados de varios temas ya no se pueden separar en commits
-coherentes, y su propio trabajo sin confirmar queda enredado con el mío.
+**Why:** los cambios de varios temas acumulados ya no se pueden separar en commits coherentes, y se enredan con el
+trabajo del usuario.
 
-**How to apply:** al terminar una pieza, commitearla antes de empezar la
-siguiente, un tema por commit. Mensajes en español, Conventional Commits, con
-cuerpo que explique el porqué (así es su historial). Pasar el mensaje con
-`git commit -F archivo`: los here-strings de PowerShell se rompen con comillas
-dentro. Ver también [[peticiones-al-final-del-mensaje]].
+**How to apply:** mensajes en el idioma del usuario con el formato Conventional Commits y un cuerpo que explique el
+porqué. Si la terminal rompe las comillas del mensaje, pasarlo con `git commit -F archivo`.

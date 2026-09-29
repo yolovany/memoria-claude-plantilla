@@ -1,17 +1,17 @@
 ---
 name: commits-solo-cambios-propios
-description: Con sesiones paralelas en el mismo repo, cada una hace commit solo de sus cambios: git add por ruta.
+description: Con varias sesiones en el mismo repo, cada una hace commit solo de sus cambios.
 metadata:
   type: feedback
 ---
 
-Cuando varias sesiones trabajan en la misma copia del repositorio (misma rama, sin worktrees), cada sesión hace
-commit solo de sus propios cambios.
+Cuando varias sesiones trabajan en la misma copia del repo, cada sesión hace commit solo de sus propios cambios.
 
-**Why:** un `commit -a` de una sesión se lleva el cambio sin probar de otra bajo un mensaje que no es suyo.
+**Why:** un `git commit -a` de una sesión se lleva los cambios sin probar de otra, bajo un mensaje que no les
+corresponde.
 
 **How to apply:**
 - Agregar por ruta: `git add <archivo>`. Nada de `git add -A`, `git add .` ni `git commit -a`.
 - Antes del commit, `git diff --cached --stat`: debe listar solo archivos propios.
-- Si otra sesión tocó el mismo archivo, avisarle por SendMessage y coordinar quién hace el commit. Ver
-  [[sesiones-paralelas-avisar]].
+- Si otra sesión también tocó el archivo, avisarle ([[sesiones-paralelas-avisar]]) y acordar quién hace el commit.
+- Al dejar cambios propios sin commit, avisar a las sesiones paralelas qué archivos son.
