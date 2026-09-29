@@ -14,6 +14,7 @@ C="$HOME/.claude/memoria-claude"
 mkdir -p "$HOME/.claude" "$T/Github" "$T/nube"
 git config --global user.email prueba@example.com; git config --global user.name prueba
 git config --global init.defaultBranch main; git config --global core.autocrlf false
+git config --global --add safe.directory "*"   # en contenedores el repo montado es de otro usuario
 falla() { echo "FALLA: $*" >&2; exit 1; }
 ok() { echo "ok: $*"; }
 json() { "$PY" -c 'import json,sys; json.load(sys.stdin)'; }
