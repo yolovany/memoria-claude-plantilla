@@ -609,7 +609,9 @@ def actualizar(aplicar=False, forzar=(), version=''):
     apagar()
     configurar(raiz_por_omision())
     instalar_resto()
-    cambiados = sorted({*plan['agregar'], *plan['actualizar'], *plan['quitar'], 'compartidas', 'VERSION'})
+    # También lo del arnés que ya estaba igual pero sin commit (el arnes.py que trae a mano la migración de una copia vieja).
+    cambiados = sorted({*plan['agregar'], *plan['actualizar'], *plan['quitar'], 'compartidas', 'VERSION',
+                        *(a for a in arnes_nuevo if (CENTRAL / a).exists())})
     git(CENTRAL, 'add', '-A', '--', *cambiados)
     r = subprocess.run(['git', '-C', str(CENTRAL), 'commit', '-q', '-m', f'arnés: actualizado a {nueva}', '--', *cambiados],
                        capture_output=True, text=True, encoding='utf-8', errors='replace')
