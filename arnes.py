@@ -290,6 +290,11 @@ def instalar_resto():
         escribir(precommit, '#!/usr/bin/env bash\nexec bash "$(git rev-parse --show-toplevel)/hooks/pre-commit.sh"\n')
         precommit.chmod(0o755)
         print('instalado el candado de secretos (pre-commit)')
+    # Copia de la plantilla (tiene VERSION): "gh repo create --template" no deja remoto hacia ella, y sin él no llega el
+    # aviso de versión nueva al abrir.
+    if (CENTRAL / 'VERSION').exists() and git(CENTRAL, 'remote', 'get-url', 'plantilla')[0]:
+        git(CENTRAL, 'remote', 'add', 'plantilla', PLANTILLA)
+        print(f'remoto plantilla agregado: {PLANTILLA}')
     usuario = CLAUDE / 'CLAUDE.md'
     imp = '@~/.claude/memoria-claude/CLAUDE.md'
     previo = leer(usuario) if usuario.exists() else ''
@@ -639,7 +644,7 @@ def doctor(raiz):
     print('Memoria')
     ok(git(CENTRAL, 'remote', 'get-url', 'origin')[0] == 0, 'remoto origin', 'git remote add origin <tu repo privado>')
     pendientes = git(CENTRAL, 'log', '--oneline', '@{u}..')[1]
-    ok(not pendientes, 'todo subido', 'sin red o con choque: git -C ~/.claude/memoria-claude pull --rebase && git push')
+    ok(not pendientes, 'sin commits por subir','sin red o con choque: git -C ~/.claude/memoria-claude pull --rebase && git push')
     avisos = CLAUDE / 'memoria-claude-avisos.log'
     ok(not (avisos.exists() and avisos.stat().st_size), 'sin avisos pendientes', f'lee {avisos}')
     ok((CENTRAL / '.git' / 'hooks' / 'pre-commit').exists(), 'candado de secretos', 'python arnes.py instalar')

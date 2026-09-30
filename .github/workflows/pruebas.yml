@@ -6,6 +6,8 @@ on:
 
 jobs:
   privacidad:
+    # Solo en la plantilla: las copias de los usuarios (privadas) no gastan sus minutos de Actions en cada cierre.
+    if: github.repository == 'yolovany/memoria-claude-plantilla'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,6 +17,8 @@ jobs:
         run: bash .github/privacidad.sh
 
   humo:
+    # Solo en la plantilla: las copias de los usuarios (privadas) no gastan sus minutos de Actions en cada cierre.
+    if: github.repository == 'yolovany/memoria-claude-plantilla'
     strategy:
       fail-fast: false
       matrix:

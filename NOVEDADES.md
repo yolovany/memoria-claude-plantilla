@@ -3,6 +3,16 @@
 Lo que cambia en cada versión, en palabras simples. "Actualiza el arnés" muestra las secciones posteriores a tu
 versión.
 
+## v1.0.1 — 2026-09-30
+
+- **Las pruebas de la plantilla ya no corren en tu repo.** Antes, cada cierre de chat gastaba minutos de GitHub Actions
+  de tu cuenta.
+- **Aviso de versión nueva desde el primer día:** la instalación conecta tu repo con la plantilla.
+- **Instalación más clara:** qué hacer en un segundo equipo (solo clonar tu repo) y el nombre y correo de git en un
+  equipo nuevo.
+- La memoria de un repo ya no sale "atrasada" por commits que solo tocan su `CLAUDE.md`.
+- `doctor` dice "sin commits por subir" (lo que falta de commit lo sube el cierre del chat).
+
 ## v1.0.0 — 2026-09-29
 
 - **Se instala y se actualiza con un prompt.** "Actualiza el arnés" trae lo nuevo sin tocar tus memorias, tu

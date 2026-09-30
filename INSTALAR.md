@@ -32,10 +32,16 @@ En los comandos de abajo, `python` es `python3` en Mac y Linux.
    - Mac: `xcode-select --install` (trae git y Python) y `brew install gh` (si no tiene Homebrew, https://brew.sh).
    - Linux: `sudo apt install git python3 gh` (o el gestor de su distribución).
 2. **GitHub.** Si `gh auth status` falla, que él corra `gh auth login` en su terminal (GitHub.com, HTTPS, navegador).
-   Si no tiene cuenta, que la cree en https://github.com/signup.
+   Si no tiene cuenta, que la cree en https://github.com/signup. Si `git config --global user.email` sale vacío (equipo
+   nuevo, los commits fallarían), con su sí: `git config --global user.name "<su usuario de GitHub>"` y
+   `git config --global user.email "<correo>"`, con el correo privado de GitHub que da
+   `gh api user --jq '"\(.id)+\(.login)@users.noreply.github.com"'`.
 3. **Su repo privado de memoria.** Con su sí:
    `gh repo create memoria-claude --private --template yolovany/memoria-claude-plantilla` y
    `gh repo clone memoria-claude ~/.claude/memoria-claude`.
+   **Si ya lo tiene** (`gh repo view memoria-claude` responde: este es otro equipo suyo): no lo crees, solo clónalo;
+   salta los pasos 4 y 5 (ya están en su repo), en el 7 no crees llaves nuevas si hay `secretos/destinatario.txt` (que
+   traiga su llave privada de su respaldo a la ruta de la llave) y en el 11 sube solo si algo cambió.
 4. **Perfil.** Pregunta en una ronda: a qué se dedica, qué sabe (lenguajes, herramientas), qué va a hacer con Claude y
    cómo quiere que le expliques. Escríbelo en 3 a 6 líneas en la sección "Sobre mí" de su `CLAUDE.md`.
 5. **Preferencias.** Muestra las preferencias de `compartidas/` (sección "Preferencias" del índice) y los plugins
@@ -49,7 +55,7 @@ En los comandos de abajo, `python` es `python3` en Mac y Linux.
    - Instala age (Windows `winget install --id FiloSottile.age -e`, Mac `brew install age`, Linux `apt install age`).
    - `age-keygen -o <llave>`: la llave privada va en OneDrive → Almacén personal (Windows:
      `%OneDrive%\Almacén personal\memoria-claude-llave.txt`) o en `~/.config/memoria-claude/llave-age.txt` con respaldo
-     en su gestor de contraseñas. Si no es la ruta de Windows, se define la variable `MEMORIA_LLAVE`.
+     en su gestor de contraseñas. Solo si la guarda en otra ruta, se define la variable `MEMORIA_LLAVE` con esa ruta.
    - `age-keygen -y <llave> > ~/.claude/memoria-claude/secretos/destinatario.txt` (la pública, esa sí va en git).
 8. **Permisos.** Explica los modos de permisos del app (el selector junto al cuadro de texto): preguntar siempre,
    aceptar ediciones, plan y sin preguntar. Sin preguntar es cómodo pero Claude ejecuta todo sin detenerse: **no
@@ -58,10 +64,10 @@ En los comandos de abajo, `python` es `python3` en Mac y Linux.
    `"Bash(rm -rf:*)"`, `"Bash(git push --force:*)"`, `"Bash(git reset --hard:*)"`.
 9. **Instalar.** `python ~/.claude/memoria-claude/arnes.py instalar [--raiz <carpeta>]`. Enlaza la memoria de cada
    repo, agrega hooks, barra de estado y plugins a `~/.claude/settings.json` sin pisar lo suyo, instala los atajos y el
-   candado de secretos.
+   candado de secretos, y conecta su repo con la plantilla (para el aviso de versión nueva).
 10. **Revisar.** `python ~/.claude/memoria-claude/arnes.py doctor`: todo en ✓ (la llave solo si hizo el paso 7).
-11. **Subir.** En `~/.claude/memoria-claude`: `git add -A`, `git commit -m "memoria: primera configuración"`,
-    `git push`.
+11. **Subir.** En `~/.claude/memoria-claude`: `git status`, `git add` de cada archivo que cambió (por su ruta),
+    `git commit -m "memoria: primera configuración"` y `git push`.
 12. **Cierre.** Dile que reinicie Claude, que abra un chat en uno de sus repos y que lea `GUIA.md` (resúmela en 5
     líneas: cómo pedir, permisos, `/retomar`, `/cerrar-tema`, `/memorias`, "actualiza el arnés").
 

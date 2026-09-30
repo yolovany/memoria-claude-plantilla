@@ -20,12 +20,13 @@ if [ -s "$AVISOS" ]; then
 fi
 
 # Memoria atrasada: su repo tiene commits de más de un día después del último commit de su memoria.
+# No cuentan los commits que solo tocan el CLAUDE.md de la raíz (los hace el arnés al cambiar cómo se carga).
 atrasadas=""
 for d in "$C"/*/; do
     p=$(basename "$d")
     case "$p" in compartidas|hooks|config|secretos|docs|plantillas|skills) continue ;; esac
     [ -s "$d/MEMORY.md" ] && [ -e "$RAIZ/$p/.git" ] || continue
-    repo=$(git -C "$RAIZ/$p" log -1 --format=%ct 2>/dev/null)
+    repo=$(git -C "$RAIZ/$p" log -1 --format=%ct -- . ':(exclude)CLAUDE.md' 2>/dev/null)
     mem=$(git -C "$C" log -1 --format=%ct -- "$p/" 2>/dev/null)
     [ -n "$repo" ] && [ -n "$mem" ] && [ "$repo" -gt $((mem + 86400)) ] && atrasadas="$atrasadas $p"
 done

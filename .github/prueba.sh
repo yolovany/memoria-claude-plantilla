@@ -35,6 +35,7 @@ grep -q '@~/.claude/memoria-claude/CLAUDE.md' "$HOME/.claude/CLAUDE.md" || falla
 [ -f "$HOME/.claude/skills/retomar/SKILL.md" ] || falla "atajos"
 slug=$(nat "$T/Github/demo" | sed 's/[^a-zA-Z0-9]/-/g')
 [ -f "$HOME/.claude/projects/$slug/memory/MEMORY.md" ] || falla "enlace de la memoria de demo"
+git -C "$C" remote get-url plantilla >/dev/null || falla "remoto plantilla (aviso de versión nueva)"
 ok "instalar"
 [ -z "$("$PY" "$C/arnes.py" instalar | grep -v '^aviso' || true)" ] || falla "instalar no es idempotente"
 ok "instalar dos veces no cambia nada"
@@ -91,6 +92,7 @@ echo "Mi cambio." >> "$C/compartidas/preguntar-antes-de-decidir.md"
 echo "trabajo-desatendido" >> "$C/apagadas.txt"
 printf -- '---\nname: mia\n---\nmía\n' > "$C/compartidas/mia.md" && echo '- [Mía](mia.md)' >> "$C/compartidas/MEMORY.md"
 git -C "$C" add -A && git -C "$C" commit -qm "cambios del usuario"
+git -C "$C" remote set-url plantilla "$P2"   # instalar lo apuntó a GitHub
 MEMORIA_PLANTILLA="$P2" "$PY" "$C/arnes.py" actualizar --aplicar > "$T/actualizar.txt"
 grep -q 'Línea nueva.' "$C/compartidas/respuestas-cortas.md" || falla "no actualizó una nota sin editar"
 grep -q 'Mi cambio.' "$C/compartidas/preguntar-antes-de-decidir.md" || falla "pisó una nota editada"
