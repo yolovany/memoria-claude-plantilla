@@ -638,7 +638,7 @@ def doctor(raiz):
     ok(bool(shutil.which('git')), 'git', 'instala Git (en Windows, Git para Windows)')
     ok(sh('gh', 'auth', 'status')[0] == 0, 'gh con sesión', 'gh auth login')
     ok(sys.version_info >= (3, 8), f'Python {sys.version.split()[0]}')
-    if lista('secretos/archivos.txt'):
+    if lista('secretos/archivos.txt') and (CENTRAL / 'secretos' / 'destinatario.txt').exists():   # solo si activó secretos
         ok(bool(buscar_age()), 'age (secretos cifrados)', 'python arnes.py instalar lo instala, o https://github.com/FiloSottile/age')
         ok(llave().exists(), f'llave privada de age en {llave()}', 'restáurala de tu respaldo o define MEMORIA_LLAVE')
     print('Memoria')

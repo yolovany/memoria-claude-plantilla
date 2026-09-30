@@ -3,6 +3,13 @@
 Lo que cambia en cada versión, en palabras simples. "Actualiza el arnés" muestra las secciones posteriores a tu
 versión.
 
+## v1.0.2 — 2026-09-30
+
+- **`doctor` ya no marca error por age** si no usas secretos cifrados (solo lo revisa cuando existe
+  `secretos/destinatario.txt`).
+- Práctica nueva: **separar lo que funciona de los arreglos** al reportar una prueba, con el porqué de cada arreglo.
+- «Preguntar antes de decidir»: las preguntas que siguen abiertas también van en la ventana de opciones.
+
 ## v1.0.1 — 2026-09-30
 
 - **Las pruebas de la plantilla ya no corren en tu repo.** Antes, cada cierre de chat gastaba minutos de GitHub Actions

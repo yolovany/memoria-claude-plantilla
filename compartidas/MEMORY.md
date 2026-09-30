@@ -22,6 +22,7 @@
 - [Preparar la compactación](preparar-compactacion.md) — EN CURSO al día en cada paso.
 - [Retomar sesión cortada](retomar-sesion-cortada.md) — /retomar; límite de uso u otra cuenta.
 - [Verificar tras una edición detenida](verificar-tras-edicion-detenida.md) — git status tras una interrupción.
+- [Separar funciona de arreglos](separar-funciona-de-arreglos.md) — al reportar pruebas, y por qué arreglar.
 - [Temas aparte como sugerencia](temas-aparte-como-sugerencia.md) — spawn_task, chats comunicados.
 - [Dónde quedó cada cambio](donde-quedo-cada-cambio.md) — pruebas, producción, docs o salida.
 - [Cierre de bloque completo](cierre-de-bloque-completo.md) — docs, memoria e índices sin que lo pidan.
