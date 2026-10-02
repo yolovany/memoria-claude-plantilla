@@ -3,6 +3,14 @@
 Lo que cambia en cada versión, en palabras simples. "Actualiza el arnés" muestra las secciones posteriores a tu
 versión.
 
+## v1.1.0 — 2026-10-02
+
+- **Aviso antes de compactar.** Al llegar al 80% de la ventana de compactación automática, Claude recibe la orden de
+  poner al día el bloque EN CURSO antes de seguir, para que el resumen no pierda el hilo (`hooks/aviso-contexto.sh`).
+- **Compactación a 500K** (`autoCompactWindow`). Cada respuesta relee todo el contexto: compactar antes del millón
+  ahorra tokens. Se ajusta con `/autocompact`.
+- Nota nueva según herramienta: **RTK** (hook que cubra PowerShell, telemetría y filtros propios).
+
 ## v1.0.2 — 2026-09-30
 
 - **`doctor` ya no marca error por age** si no usas secretos cifrados (solo lo revisa cuando existe

@@ -19,6 +19,9 @@ se decidió y qué chat lleva qué.
 - **Hooks:** antes de compactar (`hooks/compactar.sh antes`) se archiva el scratchpad de la sesión y se sube la
   memoria; después (`compactar.sh despues`) Claude recibe la orden de leer el EN CURSO y retomar desde ahí sin volver
   a preguntar lo decidido. Las instrucciones del resumen están en `REGLAS.md` ("Al compactar").
-- **Aviso:** cuando el contexto va lleno (la barra de estado muestra el %), sugerir compactar en una línea, con el EN
-  CURSO ya al día.
+- **Aviso al 80%** (`hooks/aviso-contexto.sh`, con cada mensaje y tras cada herramienta): cuando el contexto llega al
+  80% de la ventana de compactación automática (`autoCompactWindow`, 500K por omisión del arnés), Claude recibe la
+  orden de poner al día el EN CURSO antes de seguir. Una vez por ciclo. Si llega, se atiende primero.
+- **Ventana de compactación:** compactar antes ahorra tokens (cada respuesta relee todo el contexto), pero cada
+  compactación pierde detalle. Ajustarla a lo que uno suele usar con `/autocompact` (por ejemplo `/autocompact 500k`).
 - Relacionadas: [[retomar-sesion-cortada]], [[sesiones-paralelas-avisar]].

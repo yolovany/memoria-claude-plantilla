@@ -54,3 +54,4 @@ compartidas/produccion-solo-diagnostico.md
 compartidas/separar-funciona-de-arreglos.md
 compartidas/indices-codebase-al-dia.md
 compartidas/feedback_encoding_powershell.md
+compartidas/rtk-hook-powershell.md

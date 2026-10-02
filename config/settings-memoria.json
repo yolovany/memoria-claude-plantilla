@@ -54,6 +54,16 @@
             "timeout": 5
           }
         ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/memoria-claude/hooks/aviso-contexto.sh",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "PreCompact": [
@@ -65,6 +75,17 @@
             "command": "bash ~/.claude/memoria-claude/hooks/compactar.sh antes",
             "timeout": 60,
             "statusMessage": "Archivando y subiendo la memoria antes de compactar"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/memoria-claude/hooks/aviso-contexto.sh",
+            "timeout": 5
           }
         ]
       }
@@ -98,5 +119,6 @@
     "type": "command",
     "command": "bash ~/.claude/memoria-claude/hooks/barra-estado.sh",
     "padding": 0
-  }
+  },
+  "autoCompactWindow": 500000
 }

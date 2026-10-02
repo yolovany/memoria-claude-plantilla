@@ -40,3 +40,4 @@
 ## Según herramienta
 - [Índices de código al día](indices-codebase-al-dia.md) — si usas codebase-memory-mcp.
 - [Encoding: no PowerShell Set-Content](feedback_encoding_powershell.md) — Windows: añade BOM; usar Edit o sed.
+- [RTK: hook, telemetría y filtros](rtk-hook-powershell.md) — si usas RTK: cubrir PowerShell, `rtk trust` al editar filtros.
